@@ -1,0 +1,130 @@
+# Задание 1
+.
+├── mentors
+│   └── mentors_list.txt
+└── students
+    └── students_list.txt
+
+2 directories, 2 files
+
+# Задание 2
+$ cat students/students_list.txt
+Ростислав Ромашин
+Evgeny Belan
+Ирина Зурина
+Ярослав Буянов
+Явруян Ольга
+Владимир Уткин
+Георгий Малявкин
+Ольга Шестакова
+Oksana Kapcova
+Алина Варакина
+Антон Нехорошев
+Васильченко Ольга
+Маргарита Харохорина
+Дмитрий Грибенюк
+Ольга Щёголева
+Алексей Попов
+Михаил Чертов
+Вера Ложкина
+Шаров Дмитрий
+Леонид Тен
+Елена Каликина
+Роман Дудник
+Елена Малоросиянцева
+Алия Габбасова
+Альберт Гаспарян
+Олег Данилов
+Вячеслав Кривоусов
+Ксения Сташкова
+Марс Арсланов
+Анастасия Олефиренко
+Нурислом Бозоров
+Андрей Горлов
+
+$ cat mentors/mentors_list.txt
+Преподаватель   Владислав       Винюков
+Ревьюер         Кирилл          Иванов
+
+# Задание 3
+$ mv mentors/mentors_list.txt students/
+.
+├── mentors
+└── students
+    ├── mentors_list.txt
+    └── students_list.txt
+
+2 directories, 2 files
+
+# Задание 4
+rmdir mentors/
+
+# Задание 5
+$ mv students students_and_mentors
+.
+└── students_and_mentors
+    ├── mentors_list.txt
+    └── students_list.txt
+
+1 directory, 2 files
+
+# Задание 6
+$ rm -rf students_and_mentors/
+
+# Задание 7
+$ mkdir files
+$ cd files
+$ ls -al > file1
+$ cp file1 file2
+$ ln -s file1 file3
+$ ln file1 file4
+$ ls -il
+total 6
+ 2004 -rw-r--r-- 2 slava slava 270 Apr 26 17:54 file1
+23242 -rw-r--r-- 1 slava slava 270 Apr 26 17:54 file2
+24045 lrwxrwxrwx 1 slava slava   5 Apr 26 17:55 file3 -> file1
+ 2004 -rw-r--r-- 2 slava slava 270 Apr 26 17:54 file4
+
+$ rm file1
+$ ls -il
+total 3
+23242 -rw-r--r-- 1 slava slava 270 Apr 26 17:54 file2
+24045 lrwxrwxrwx 1 slava slava   5 Apr 26 17:55 file3 -> file1
+ 2004 -rw-r--r-- 1 slava slava 270 Apr 26 17:54 file4
+
+$ cat file2
+total 7
+drwxr-xr-x 2 slava slava 4096 Apr 26 17:54 .
+drwxr-x--- 4 slava slava 4096 Apr 26 17:51 ..
+-rw-r--r-- 1 slava slava    0 Apr 26 17:54 file1
+
+$ cat file3
+cat: file3: No such file or directory
+$ cat file4
+total 7
+drwxr-xr-x 2 slava slava 4096 Apr 26 17:54 .
+drwxr-x--- 4 slava slava 4096 Apr 26 17:51 ..
+-rw-r--r-- 1 slava slava    0 Apr 26 17:54 file1
+
+# Задание 8
+$ mv file2 some2
+$ mv file3 some3
+$ mv file4 some4
+$ ls -il
+total 8
+23242 -rw-r--r-- 1 slava slava 270 Apr 26 17:54 some2
+24045 lrwxrwxrwx 1 slava slava   5 Apr 26 17:55 some3 -> file1
+ 2004 -rw-r--r-- 1 slava slava 270 Apr 26 17:54 some4
+
+$ ln -s some2 link
+$ mv link ..
+$ cd ..
+$ tree
+.
+├── files
+│   ├── some2
+│   ├── some3 -> file1
+│   └── some4
+└── link -> some2
+
+1 directory, 4 files
