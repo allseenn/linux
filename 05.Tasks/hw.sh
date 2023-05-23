@@ -28,7 +28,7 @@ echo "Telegram удален"
 sleep 5
 echo "Задача 3: * Создать с помощью nano файл test.txt. Настроить автоматический бэкап этого файла раз в 10 минут в файл с названием test.txt.bak с использованием cron"
 echo "Подождем 5 сек и NANO закроется ))" | nano ~/test ; mv ~/test.save ~/test.txt
-echo "*/1 * * * * cp ~/test.txt ~/test.txt.bak" >> ~/tmp
+echo "*/10 * * * * cp ~/test.txt ~/test.txt.bak" >> ~/tmp
 crontab ~/tmp
 rm ~/tmp
 cd 
