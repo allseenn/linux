@@ -5,7 +5,7 @@ sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 sudo iptables -L
 sleep 5
-echo "Задача 2: sudo iptables -L2. Настроить проброс портов локально с порта 80 на порт 8080"
+echo "Задача 2: Настроить проброс портов локально с порта 80 на порт 8080"
 sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8080
 sudo iptables -L
 sleep 5
@@ -22,4 +22,3 @@ sleep 5
 MC=$(ps | grep [m]c | awk '{print $1}')
 kill -9 $MC
 clear
-
