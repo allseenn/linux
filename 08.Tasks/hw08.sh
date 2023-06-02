@@ -90,12 +90,13 @@ cat > start.sh <<EOF
 EOF
 chmod +x start.sh
 sudo docker build -t nginx-fpm .
-sleep 7
+sleep 5
 echo "Запускаю контейнер.."
 sudo mkdir -p /var/webroot
 sudo docker run -d -v /var/webroot:/var/www/html -p 8080:80 --name test-container nginx-fpm
 echo "<h1>Nginx and PHP-FPM 8.1 inside Docker Container with Ubuntu 22.04 Base Image</h1>" | sudo tee /var/webroot/index.html
 echo "<?php phpinfo(INFO_LICENSE); ?>" | sudo tee /var/webroot/info.php
-curl localhost:8080
-curl localhost:8080/info.php
+sleep 5
+curl -L localhost:8080
+curl -L localhost:8080/info.php
 

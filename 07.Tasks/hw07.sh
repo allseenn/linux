@@ -55,7 +55,3 @@ sudo apt -y install phpmyadmin
 curl -L http://192.168.1.9:8080/phpmyadmin/
 
 
-
-
-
-
