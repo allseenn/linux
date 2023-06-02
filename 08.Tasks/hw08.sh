@@ -3,6 +3,7 @@ echo "Задача 2. Установить Docker"
 sleep 5
 sudo apt -y install docker.io
 echo "Задача 3. Запустить контейнер с Ubuntu"
+echo "Не забудьте выйти из контейнера ubuntu введя exit"
 sleep 5
 sudo docker run -it ubuntu
 echo "Задача 4. * Используя Dockerfile, собрать связку nginx + PHP-FPM в одном контейнере"
@@ -89,7 +90,8 @@ cat > start.sh <<EOF
 EOF
 chmod +x start.sh
 sudo docker build -t nginx-fpm .
-sleep 
+sleep 7
+echo "Запускаю контейнер.."
 sudo mkdir -p /var/webroot
 sudo docker run -d -v /var/webroot:/var/www/html -p 8080:80 --name test-container nginx-fpm
 echo "<h1>Nginx and PHP-FPM 8.1 inside Docker Container with Ubuntu 22.04 Base Image</h1>" | sudo tee /var/webroot/index.html
