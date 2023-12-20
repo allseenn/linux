@@ -43,7 +43,7 @@ echo "Задача 6. Установить MySQL. Создать новую ба
 sleep 5
 sudo apt -y mysql-client mysql-server
 sudo systemctl start mysql
-mysql -uroot -p <<MYSQL_SCRIPT
+mysql -uroot -p << MYSQL_SCRIPT
 CREATE DATABASE mydatabase;
 USE mydatabase;
 CREATE TABLE mytable (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50));
