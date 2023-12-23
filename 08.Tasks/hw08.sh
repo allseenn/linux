@@ -1,4 +1,5 @@
 #!/bin/bash
+
 dir=$1
 ext="bak tmp backup"
 

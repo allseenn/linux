@@ -1,4 +1,5 @@
 #!/bin/bash
+
 dir=$1
 
 if [ -z $dir ] || [ $dir == --help ] || [ $dir == -h ]
