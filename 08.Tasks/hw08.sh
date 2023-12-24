@@ -8,9 +8,15 @@ if [ -z $dir ] || [ $dir == --help ] || [ $dir == -h ]
     exit 1
 fi
 
-count=$(ls -1 $dir | wc -l)
+if ! [ -d $dir ]
+    then printf "$dir is not exists\n"
+    exit 2
+fi
+
+count=0
 for i in $ext
-    do rm -f *.$i
+    do ((count+=$(ls -1 $dir/*.$i | wc -l)))
+    rm -f $dir/*.$i
 done
 
 printf "$count files was deleted\n"

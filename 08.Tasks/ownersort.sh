@@ -7,6 +7,11 @@ if [ -z $dir ] || [ $dir == --help ] || [ $dir == -h ]
     exit 1
 fi
 
+if ! [ -d $dir ]
+    then printf "$dir is not exists\n"
+    exit 2
+fi
+
 f=0 d=0
 for i in $(ls -1p $dir | grep -v '/' | tr ' ' '#')
     do file=$(echo $i | tr '#' ' ')
